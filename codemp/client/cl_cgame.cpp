@@ -762,19 +762,12 @@ void CL_SetCGameTime( void ) {
 		int tn;
 
 		tn = cl_timeNudge->integer;
-#ifdef _DEBUG
+
 		if (tn<-900) {
 			tn = -900;
 		} else if (tn>900) {
 			tn = 900;
 		}
-#else
-		if (tn<-30) {
-			tn = -30;
-		} else if (tn>30) {
-			tn = 30;
-		}
-#endif
 
 		cl.serverTime = cls.realtime + cl.serverTimeDelta - tn;
 
